@@ -1,0 +1,39 @@
+{
+	"hostgroup": {
+		"name": "TodoGroup",
+		"hosts": [
+			{
+				"hostname": "todo-srv1",
+				"interfaces": [
+					{
+						"ip": "10.210.34.38",
+						"dns": "todo.local",
+						"port": "10050"
+					}
+				],
+				"templates": [
+					"TodoServer"
+				],
+				"items": [
+					{
+						"name": "Todo server node.js process % CPU usage",
+						"key": "system.proc_details[\"cat /var/run/todo-server.pid\",pcpu]",
+						"application": "TodoServer"
+					}
+				]
+			}
+		]
+	},
+	"templates": [
+		{
+			"name": "TodoServer",
+			"items": [
+				{
+					"name": "Todo server process file pid existance check",
+					"key": "vfs.file.exists[/var/run/todoserver.pid]",
+					"application": "Todo Server"
+				}
+			]
+		}
+	]
+}
