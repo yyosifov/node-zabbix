@@ -1,0 +1,20 @@
+{
+  "name": "node-zabbix",
+  "version": "0.0.0",
+  "description": "node-zabbix ===========",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yyosifov/node-zabbix.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "f05b3e145f38bd3b4fe6c14253cb5123075868c9",
+  "dependencies": {
+    "request": "~2.47.0"
+  }
+}
