@@ -15,6 +15,7 @@
   "readmeFilename": "README.md",
   "gitHead": "f05b3e145f38bd3b4fe6c14253cb5123075868c9",
   "dependencies": {
-    "request": "~2.47.0"
+    "request": "~2.47.0",
+    "q": "~1.0.1"
   }
 }

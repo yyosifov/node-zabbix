@@ -1,16 +1,18 @@
 var Config = require('./Config'),
 	ZabbixApi = require('./lib/zabbix-api');
 
+var handleError = function(err) {
+    if(typeof err === 'string') {
+        return console.log('Error: ' + err);
+    }
+
+    console.log(JSON.stringify(err));
+};
+
 var zabbixApi = new ZabbixApi(Config.host);
 zabbixApi.login(Config.user, Config.password).then(function() {
-    zabbixApi.createHost('yo', 'EverliveApiTest').then(function(res) {
-        console.log('host "yo" is created');
-    }, function(err) {
-        // TODO:
-    });
-    /*zabbixApi.createHostGroup('yo', function(groupId) {
-        console.log(JSON.stringify(groupId));
-    });*/
-}, function(err) {
-    console.log(err.message)
-});
+    zabbixApi.hostgroup.create('yo').then(function(groupId) {
+        console.log('groupid = ' + JSON.stringify(groupid));
+    }, handleError);
+
+}, handleError);
